@@ -240,3 +240,50 @@ nav a:hover {
     margin-top: 2rem; /* Add extra space above buttons */
     clear: both; /* Ensure buttons drop below the image */
 }
+
+/* Ambient Background Orbs */
+.ambient-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    z-index: -1; /* Keeps it strictly in the background behind all content */
+    pointer-events: none;
+}
+
+.orb {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(100px);
+    opacity: 0.12; /* Subtle, atmospheric glow */
+}
+
+.orb-1 {
+    width: 450px;
+    height: 450px;
+    background: var(--accent-purple);
+    top: 10%;
+    left: 10%;
+    animation: floatOrb1 15s ease-in-out infinite alternate;
+}
+
+.orb-2 {
+    width: 550px;
+    height: 550px;
+    background: var(--accent-glow);
+    bottom: 10%;
+    right: 10%;
+    animation: floatOrb2 20s ease-in-out infinite alternate;
+}
+
+@keyframes floatOrb1 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(150px, 100px) scale(1.2); }
+}
+
+@keyframes floatOrb2 {
+    0% { transform: translate(0, 0) scale(1); }
+    100% { transform: translate(-150px, -120px) scale(1.1); }
+}
