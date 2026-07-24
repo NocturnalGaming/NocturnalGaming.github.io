@@ -208,3 +208,35 @@ nav a:hover {
     border-radius: 8px;
     margin: 1.5rem 0;
 }
+
+/* --- Fix for Game Detail Page --- */
+
+/* This forces the container to wrap around the floated image and text */
+.game-detail::after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.game-detail {
+    background: var(--bg-card);
+    border: 1px solid var(--border-color);
+    padding: 2rem;
+    border-radius: 12px;
+    position: relative; /* Ensure child elements stay inside */
+}
+
+.game-detail img {
+    max-width: 300px;
+    border-radius: 10px;
+    float: left;
+    margin-right: 2rem;
+    margin-bottom: 1rem;
+    border: 1px solid var(--border-color);
+}
+
+/* Adjust button group margins so they sit clearly below content */
+.game-detail .button-group {
+    margin-top: 2rem; /* Add extra space above buttons */
+    clear: both; /* Ensure buttons drop below the image */
+}
