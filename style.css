@@ -213,17 +213,18 @@ nav a:hover {
 .game-detail-grid {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 2.5rem;
+    padding: 2rem;
     border-radius: 12px;
     display: grid;
-    grid-template-columns: 320px 1fr;
-    gap: 2.5rem;
+    grid-template-columns: 160px 1fr; /* Reduced from 320px to roughly half */
+    gap: 2rem;
     align-items: start;
 }
 
 .game-image-col img {
     width: 100%;
-    border-radius: 10px;
+    max-width: 160px; /* Forces the image display size down */
+    border-radius: 8px;
     border: 1px solid var(--border-color);
     display: block;
 }
