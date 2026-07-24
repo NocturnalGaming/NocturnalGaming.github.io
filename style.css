@@ -209,36 +209,42 @@ nav a:hover {
     margin: 1.5rem 0;
 }
 
-/* --- Fix for Game Detail Page --- */
-
-/* This forces the container to wrap around the floated image and text */
-.game-detail::after {
-    content: "";
-    display: table;
-    clear: both;
-}
-
-.game-detail {
+/* Game Detail Grid Layout (Replaces floats) */
+.game-detail-grid {
     background: var(--bg-card);
     border: 1px solid var(--border-color);
-    padding: 2rem;
+    padding: 2.5rem;
     border-radius: 12px;
-    position: relative; /* Ensure child elements stay inside */
+    display: grid;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    align-items: start;
 }
 
-.game-detail img {
-    max-width: 300px;
+.game-image-col img {
+    width: 100%;
     border-radius: 10px;
-    float: left;
-    margin-right: 2rem;
-    margin-bottom: 1rem;
     border: 1px solid var(--border-color);
+    display: block;
 }
 
-/* Adjust button group margins so they sit clearly below content */
-.game-detail .button-group {
-    margin-top: 2rem; /* Add extra space above buttons */
-    clear: both; /* Ensure buttons drop below the image */
+.game-info-col h1 {
+    color: var(--accent-glow);
+    margin-bottom: 1rem;
+}
+
+.game-info-col p {
+    color: var(--text-gray);
+    margin-bottom: 1rem;
+    font-size: 0.95rem;
+}
+
+/* Responsive fix for mobile screens: stacks image on top of text */
+@media (max-width: 768px) {
+    .game-detail-grid {
+        grid-template-columns: 1fr;
+        padding: 1.5rem;
+    }
 }
 
 /* Ambient Background Orbs */
