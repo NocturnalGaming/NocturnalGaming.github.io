@@ -5,27 +5,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nocturnal Gaming - Logging Out</title>
     <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+    <link rel="stylesheet" href="css/style.css">
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-client.js" defer></script>
-    <style>
-        :root {
-            --bg-dark: #0b0b0f;
-            --bg-card: #1a1a26;
-            --text-light: #f3f4f6;
-            --text-gray: #9ca3af;
-            --border-color: #2a2a3a;
-        }
-        body { background-color: var(--bg-dark); color: var(--text-light); font-family: sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; }
-        .card { background-color: var(--bg-card); border: 1px solid var(--border-color); padding: 2rem; border-radius: 12px; text-align: center; }
-    </style>
 </head>
-<body>
+<body style="display: flex; justify-content: center; align-items: center; height: 100vh;">
     <div class="card">
         <h2>Signing out...</h2>
     </div>
     <script>
     window.addEventListener("DOMContentLoaded", async () => {
-        // Slight delay to ensure supabase-client is loaded
         setTimeout(async () => {
             if (window.supabaseInstance) {
                 await window.supabaseInstance.auth.signOut();
