@@ -5,390 +5,197 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nocturnal Gaming - Privacy Policy</title>
     <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
-
-<style>
-:root {
-    --bg-dark: #0b0b0f;
-    --bg-panel: #12121a;
-    --accent-purple: #7b2cbf;
-    --accent-glow: #9d4edd;
-    --text-light: #f3f4f6;
-    --text-gray: #9ca3af;
-    --border-color: #2a2a3a;
-}
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-    scroll-behavior: smooth;
-}
-
-body {
-    background-color: var(--bg-dark);
-    color: var(--text-light);
-    font-family: sans-serif;
-    line-height: 1.6;
-    padding-bottom: 60px;
-}
-
-header {
-    background-color: rgba(18,18,26,0.95);
-    border-bottom: 1px solid var(--border-color);
-    position: fixed;
-    top: 0;
-    width: 100%;
-    z-index: 1000;
-    backdrop-filter: blur(10px);
-}
-
-.nav-container {
-    max-width: 1200px;
-    margin: 0 auto;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 2rem;
-}
-
-.logo {
-    font-size: 1.4rem;
-    font-weight: 700;
-    color: var(--text-light);
-    text-decoration: none;
-    text-transform: uppercase;
-}
-
-nav ul {
-    display: flex;
-    list-style: none;
-    gap: 1.5rem;
-}
-
-nav a {
-    color: var(--text-gray);
-    text-decoration: none;
-    font-size: 0.95rem;
-}
-
-nav a:hover {
-    color: var(--accent-glow);
-}
-
-.container {
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 8rem 2rem 4rem;
-}
-
-h1 {
-    text-align: center;
-    margin-bottom: 2rem;
-}
-
-.legal-box {
-    background-color: var(--bg-panel);
-    border: 1px solid var(--border-color);
-    border-radius: 8px;
-    padding: 2.5rem;
-}
-
-.legal-box h3 {
-    color: var(--accent-glow);
-    margin-top: 2rem;
-    margin-bottom: 1rem;
-}
-
-.legal-box p {
-    margin-bottom: 1rem;
-}
-
-.legal-box ul {
-    margin: 1rem 0 1.5rem 2rem;
-}
-
-footer {
-    text-align: center;
-    padding: 3rem;
-    border-top: 1px solid var(--border-color);
-}
-
-footer a {
-    color: var(--accent-glow);
-}
-
-</style>
-
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <script src="js/header.js" defer></script>
 </head>
-
 <body>
 
-<header>
-    <div class="nav-container">
+<!-- Header injected dynamically via js/header.js -->
 
-        <a href="index.html" class="logo">
-            Nocturnal Gaming
-        </a>
+<div class="container" style="padding-top: 8rem;">
+    <h1 style="text-align: center; margin-bottom: 2rem;">Privacy Policy</h1>
 
-        <nav>
-            <ul>
-                <li><a href="index.html">Games</a></li>
-                <li><a href="privacy.html">Privacy</a></li>
-                <li><a href="terms.html">Terms</a></li>
-                <li><a href="index.html#contact">Contact</a></li>
-            </ul>
-        </nav>
+    <div class="legal-box" style="background-color: var(--bg-panel); border: 1px solid var(--border-color); border-radius: 8px; padding: 2.5rem;">
+        <h3>Effective Date: July 22, 2026</h3>
 
+        <p>
+        Nocturnal Gaming (“us”, “we”, or “our”) operates several mobile applications
+        (hereinafter referred to as the “Service”).
+        </p>
+
+        <p>
+        This page informs you of our policies regarding the collection, use, and
+        disclosure of personal data when you use our Service and the choices you have
+        associated with that data.
+        </p>
+
+        <p>
+        We use your data to provide and improve the Service. By using our Service,
+        you agree to the collection and use of information in accordance with this
+        policy.
+        </p>
+
+        <h3>Definitions</h3>
+
+        <p>
+        <strong>Service</strong><br>
+        Service means the mobile applications operated by Nocturnal Gaming.
+        </p>
+
+        <p>
+        <strong>Personal Data</strong><br>
+        Personal Data means data about a living individual who can be identified from
+        those data.
+        </p>
+
+        <p>
+        <strong>Usage Data</strong><br>
+        Usage Data is data collected automatically through use of the Service.
+        </p>
+
+        <p>
+        <strong>Cookies</strong><br>
+        Cookies are small files stored on your device.
+        </p>
+
+        <h3>Information Collection and Use</h3>
+
+        <p>
+        We collect several different types of information for various purposes to
+        provide and improve our Service.
+        </p>
+
+        <h3>Types of Data Collected</h3>
+
+        <p><strong>Personal Data</strong></p>
+        <ul>
+        <li>Email address</li>
+        <li>First name and last name</li>
+        <li>Cookies and Usage Data</li>
+        </ul>
+        
+        <p>
+        When contacting us through our website contact form, we may collect your name,
+        email address, and any information included in your message. This information
+        is used only to respond to your enquiry, provide support, and improve our
+        services.
+        </p>
+
+        <p><strong>Usage Data</strong></p>
+        <p>
+        Usage Data may include your device information, IP address, browser type,
+        operating system, unique device identifiers, and diagnostic data.
+        </p>
+
+        <h3>Tracking & Cookies Data</h3>
+
+        <p>
+        We use cookies and similar tracking technologies to monitor activity and
+        improve our Service.
+        </p>
+
+        <ul>
+        <li>Session Cookies</li>
+        <li>Preference Cookies</li>
+        <li>Security Cookies</li>
+        </ul>
+
+        <h3>Use of Data</h3>
+
+        <p>Nocturnal Gaming uses collected data for:</p>
+        <ul>
+        <li>Providing and maintaining the Service</li>
+        <li>Improving and analysing the Service</li>
+        <li>Providing customer support</li>
+        <li>Monitoring usage</li>
+        <li>Detecting and preventing technical issues</li>
+        </ul>
+
+        <h3>Transfer of Data</h3>
+
+        <p>
+        Your information may be transferred to and maintained on computers located
+        outside your country where data protection laws may differ.
+        </p>
+
+        <p>
+        If you are located outside the United Kingdom and provide information to us,
+        your data may be transferred to and processed in the UK.
+        </p>
+
+        <h3>Disclosure of Data</h3>
+
+        <p>
+        Nocturnal Gaming may disclose Personal Data when required to:
+        </p>
+        <ul>
+        <li>Comply with legal obligations</li>
+        <li>Protect the rights or property of Nocturnal Gaming</li>
+        <li>Prevent wrongdoing</li>
+        <li>Protect users or the public</li>
+        <li>Protect against legal liability</li>
+        </ul>
+
+        <h3>Security of Data</h3>
+
+        <p>
+        The security of your data is important to us. However, no method of transmission
+        over the Internet or electronic storage is completely secure.
+        </p>
+
+        <h3>Service Providers</h3>
+
+        <p>
+        We may use third-party companies and individuals to help provide, maintain,
+        analyse, or improve our Service.
+        </p>
+
+        <h3>Links to Other Sites</h3>
+
+        <p>
+        Our Service may contain links to other websites. We are not responsible for
+        the privacy practices or content of third-party websites.
+        </p>
+
+        <h3>Children's Privacy</h3>
+
+        <p>
+        We do not knowingly collect personally identifiable information from children
+        under 13.
+        </p>
+
+        <p>
+        Some of our mobile apps are aimed at children, but those apps do not request
+        or collect Personal Information.
+        </p>
+
+        <h3>Changes to This Privacy Policy</h3>
+
+        <p>
+        We may update this Privacy Policy from time to time. Changes will be posted
+        on this page with an updated effective date.
+        </p>
+
+        <h3>Contact Us</h3>
+
+        <p>
+        If you have any questions about this Privacy Policy, please contact us:
+        </p>
+
+        <p>
+        Email: nocturnalgamin9@gmail.com
+        </p>
     </div>
-</header>
-
-
-<div class="container">
-
-<h1>Privacy Policy</h1>
-
-
-<div class="legal-box">
-
-
-<h3>Effective Date: July 22, 2026</h3>
-
-
-<p>
-Nocturnal Gaming (“us”, “we”, or “our”) operates several mobile applications
-(hereinafter referred to as the “Service”).
-</p>
-
-
-<p>
-This page informs you of our policies regarding the collection, use, and
-disclosure of personal data when you use our Service and the choices you have
-associated with that data.
-</p>
-
-
-<p>
-We use your data to provide and improve the Service. By using our Service,
-you agree to the collection and use of information in accordance with this
-policy.
-</p>
-
-
-<h3>Definitions</h3>
-
-
-<p>
-<strong>Service</strong><br>
-Service means the mobile applications operated by Nocturnal Gaming.
-</p>
-
-
-<p>
-<strong>Personal Data</strong><br>
-Personal Data means data about a living individual who can be identified from
-those data.
-</p>
-
-
-<p>
-<strong>Usage Data</strong><br>
-Usage Data is data collected automatically through use of the Service.
-</p>
-
-
-<p>
-<strong>Cookies</strong><br>
-Cookies are small files stored on your device.
-</p>
-
-
-
-<h3>Information Collection and Use</h3>
-
-
-<p>
-We collect several different types of information for various purposes to
-provide and improve our Service.
-</p>
-
-
-
-<h3>Types of Data Collected</h3>
-
-
-<p><strong>Personal Data</strong></p>
-
-<ul>
-<li>Email address</li>
-<li>First name and last name</li>
-<li>Cookies and Usage Data</li>
-</ul>
-    <p>
-When contacting us through our website contact form, we may collect your name,
-email address, and any information included in your message. This information
-is used only to respond to your enquiry, provide support, and improve our
-services.
-</p>
-
-
-
-<p><strong>Usage Data</strong></p>
-
-<p>
-Usage Data may include your device information, IP address, browser type,
-operating system, unique device identifiers, and diagnostic data.
-</p>
-
-
-
-<h3>Tracking & Cookies Data</h3>
-
-
-<p>
-We use cookies and similar tracking technologies to monitor activity and
-improve our Service.
-</p>
-
-
-<ul>
-<li>Session Cookies</li>
-<li>Preference Cookies</li>
-<li>Security Cookies</li>
-</ul>
-
-
-
-<h3>Use of Data</h3>
-
-
-<p>Nocturnal Gaming uses collected data for:</p>
-
-<ul>
-<li>Providing and maintaining the Service</li>
-<li>Improving and analysing the Service</li>
-<li>Providing customer support</li>
-<li>Monitoring usage</li>
-<li>Detecting and preventing technical issues</li>
-</ul>
-
-
-
-<h3>Transfer of Data</h3>
-
-
-<p>
-Your information may be transferred to and maintained on computers located
-outside your country where data protection laws may differ.
-</p>
-
-
-<p>
-If you are located outside the United Kingdom and provide information to us,
-your data may be transferred to and processed in the UK.
-</p>
-
-
-
-<h3>Disclosure of Data</h3>
-
-
-<p>
-Nocturnal Gaming may disclose Personal Data when required to:
-</p>
-
-<ul>
-<li>Comply with legal obligations</li>
-<li>Protect the rights or property of Nocturnal Gaming</li>
-<li>Prevent wrongdoing</li>
-<li>Protect users or the public</li>
-<li>Protect against legal liability</li>
-</ul>
-
-
-
-<h3>Security of Data</h3>
-
-
-<p>
-The security of your data is important to us. However, no method of transmission
-over the Internet or electronic storage is completely secure.
-</p>
-
-
-
-<h3>Service Providers</h3>
-
-
-<p>
-We may use third-party companies and individuals to help provide, maintain,
-analyse, or improve our Service.
-</p>
-
-
-
-<h3>Links to Other Sites</h3>
-
-
-<p>
-Our Service may contain links to other websites. We are not responsible for
-the privacy practices or content of third-party websites.
-</p>
-
-
-
-<h3>Children's Privacy</h3>
-
-
-<p>
-We do not knowingly collect personally identifiable information from children
-under 13.
-</p>
-
-
-<p>
-Some of our mobile apps are aimed at children, but those apps do not request
-or collect Personal Information.
-</p>
-
-
-
-<h3>Changes to This Privacy Policy</h3>
-
-
-<p>
-We may update this Privacy Policy from time to time. Changes will be posted
-on this page with an updated effective date.
-</p>
-
-
-
-<h3>Contact Us</h3>
-
-
-<p>
-If you have any questions about this Privacy Policy, please contact us:
-</p>
-
-
-<p>
-Email: nocturnalgamin9@gmail.com
-</p>
-
-
 </div>
-
-</div>
-
 
 <footer>
-
-<p>
-Copyright © 2026 Nocturnal Gaming |
-<a href="index.html">Return Home</a>
-</p>
-
+    <p>
+        Copyright © 2026 Nocturnal Gaming |
+        <a href="index.html">Return Home</a>
+    </p>
 </footer>
-
 
 </body>
 </html>
