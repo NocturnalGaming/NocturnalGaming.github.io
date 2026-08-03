@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nocturnal Gaming - Profile</title>
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <style>
+        :root {
+            --bg-dark: #0b0b0f;
+            --bg-panel: #12121a;
+            --bg-card: #1a1a26;
+            --accent-purple: #7b2cbf;
+            --accent-glow: #9d4edd;
+            --text-light: #f3f4f6;
+            --text-gray: #9ca3af;
+            --border-color: #2a2a3a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: sans-serif; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        header { background-color: rgba(18, 18, 26, 0.95); border-bottom: 1px solid var(--border-color); position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text-light); text-decoration: none; text-transform: uppercase; }
+        
+        nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-gray); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover, nav a.active { color: var(--accent-glow); }
+
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-panel);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+            z-index: 1000;
+            list-style: none;
+            padding: 0.5rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+        .dropdown-content li a { padding: 0.5rem 1rem; display: block; color: var(--text-gray); }
+        .dropdown-content li a:hover { background-color: var(--bg-card); color: var(--accent-glow); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .main-content { flex: 1; display: flex; justify-content: center; align-items: center; padding: 8rem 2rem 4rem; }
+        .card { background-color: var(--bg-card); border: 1px solid var(--border-color); width: 100%; max-width: 440px; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+        .card h2 { color: var(--text-light); margin-bottom: 0.5rem; text-align: center; }
+        .card p.subtitle { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 2rem; text-align: center; }
+
+        .form-group { margin-bottom: 1.25rem; }
+        .form-group label { display: block; margin-bottom: 0.5rem; color: var(--text-gray); font-size: 0.9rem; }
+        .form-group input { width: 100%; padding: 0.75rem; background-color: var(--bg-dark); border: 1px solid var(--border-color); color: var(--text-light); border-radius: 6px; font-size: 0.95rem; }
+        .form-group input:focus { outline: none; border-color: var(--accent-glow); }
+
+        .btn-submit { background-color: var(--accent-purple); color: white; width: 100%; padding: 0.75rem; border: none; cursor: pointer; border-radius: 6px; font-weight: bold; transition: 0.2s; margin-top: 0.5rem; }
+        .btn-submit:hover { background-color: var(--accent-glow); }
+
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-gray); background-color: var(--bg-panel); }
+        footer a { color: var(--text-gray); text-decoration: none; }
+        footer a:hover { color: var(--accent-glow); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">Nocturnal Gaming</a>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html#games">Games ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="games/copter-kid.html">Copter Kid</a></li>
+                        <li><a href="games/every-second-counts.html">Every Second Counts</a></li>
+                        <li><a href="games/rgb.html">R.G.B</a></li>
+                    </ul>
+                </li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <span id="auth-links" style="display:inline-flex; gap:1.5rem; align-items:center;">
+                    <li><a href="dashboard.html">Dashboard</a></li>
+                    <li><a href="profile.html" class="active">Profile</a></li>
+                    <li><a href="logout.html" style="color: #ff5252;">Logout</a></li>
+                </span>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="main-content">
+    <div class="card">
+        <h2>Edit Profile</h2>
+        <p class="subtitle">Update your player display name</p>
+
+        <form id="profile-form">
+            <div class="form-group">
+                <label for="display-name">Display Name</label>
+                <input type="text" id="display-name" required>
+            </div>
+            <div id="status-msg" style="font-size: 0.85rem; margin-bottom: 1rem; display: none;"></div>
+            <button type="submit" class="btn-submit">Save Changes</button>
+        </form>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Copyright © 2026 Nocturnal Gaming |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a>
+    </p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const supabase = window.supabaseInstance;
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    // Load current profile name
+    const { data: profile } = await supabase
+        .from('profiles')
+        .select('display_name')
+        .eq('id', session.user.id)
+        .single();
+
+    if (profile) {
+        document.getElementById('display-name').value = profile.display_name || '';
+    }
+
+    document.getElementById('profile-form').addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const newName = document.getElementById('display-name').value;
+        const statusDiv = document.getElementById('status-msg');
+
+        const { error } = await supabase
+            .from('profiles')
+            .update({ display_name: newName })
+            .eq('id', session.user.id);
+
+        statusDiv.style.display = 'block';
+        if (error) {
+            statusDiv.style.color = '#ff5252';
+            statusDiv.innerText = error.message;
+        } else {
+            statusDiv.style.color = '#4ade80';
+            statusDiv.innerText = 'Profile updated successfully!';
+        }
+    });
+});
+</script>
+
+</body>
+</html>
