@@ -24,12 +24,12 @@ document.addEventListener("DOMContentLoaded", async () => {
                     <li><a href="/terms.html">Terms</a></li>
                     <li><a href="/index.html#contact">Contact</a></li>
                     ${isLoggedIn ? `
-                        <li><a href="/dashboard/">Dashboard</a></li>
-                        <li><a href="/profile/">Profile</a></li>
-                        <li><a href="/logout/" style="color: #ff5252;">Logout</a></li>
+                        <li><a href="/dashboard.html">Dashboard</a></li>
+                        <li><a href="/profile.html">Profile</a></li>
+                        <li><a href="/logout.html" style="color: #ff5252;">Logout</a></li>
                     ` : `
-                        <li><a href="/login/">Login</a></li>
-                        <li><a href="/register/">Register</a></li>
+                        <li><a href="/login.html">Login</a></li>
+                        <li><a href="/register.html">Register</a></li>
                     `}
                 </ul>
             </nav>
