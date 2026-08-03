@@ -1,1 +1,29 @@
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nocturnal Gaming</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/css/style.css">
+    <!-- Load Supabase JS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="/includes/supabase.js" defer></script>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Nocturnal Gaming</a>
+        <nav id="nav-menu">
+            <a href="/">Home</a>
+            <a href="/#games">Games</a>
+            <a href="/privacy.php">Privacy</a>
+            <a href="/terms.php">Terms</a>
+            <!-- Dynamic Auth Links handled by supabase.js -->
+            <span id="auth-links">
+                <a href="/login.php">Login</a>
+                <a href="/register.php" class="active">Register</a>
+            </span>
+        </nav>
+    </header>
+    <div class="main-content">
