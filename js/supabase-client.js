@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", async () => {
 
     if (session && authLinks) {
         authLinks.innerHTML = `
-            <li><a href="/dashboard/">Dashboard</a></li>
-            <li><a href="/profile/">Profile</a></li>
-            <li><a href="/logout/" style="color: #ff5252;">Logout</a></li>
+            <li><a href="/dashboard.html">Dashboard</a></li>
+            <li><a href="/profile.html">Profile</a></li>
+            <li><a href="/logout.html" style="color: #ff5252;">Logout</a></li>
         `;
     }
 });
