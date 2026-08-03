@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nocturnal Gaming - Dashboard</title>
+    <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="js/supabase-client.js" defer></script>
+    <style>
+        :root {
+            --bg-dark: #0b0b0f;
+            --bg-panel: #12121a;
+            --bg-card: #1a1a26;
+            --accent-purple: #7b2cbf;
+            --accent-glow: #9d4edd;
+            --text-light: #f3f4f6;
+            --text-gray: #9ca3af;
+            --border-color: #2a2a3a;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; scroll-behavior: smooth; }
+        body { background-color: var(--bg-dark); color: var(--text-light); font-family: sans-serif; line-height: 1.6; display: flex; flex-direction: column; min-height: 100vh; }
+        
+        header { background-color: rgba(18, 18, 26, 0.95); border-bottom: 1px solid var(--border-color); position: fixed; top: 0; width: 100%; z-index: 1000; backdrop-filter: blur(10px); }
+        .nav-container { max-width: 1200px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 1rem 2rem; }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text-light); text-decoration: none; text-transform: uppercase; }
+        
+        nav ul { display: flex; list-style: none; gap: 1.5rem; align-items: center; }
+        nav a { color: var(--text-gray); text-decoration: none; font-size: 0.95rem; }
+        nav a:hover, nav a.active { color: var(--accent-glow); }
+
+        .dropdown { position: relative; }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            background-color: var(--bg-panel);
+            min-width: 180px;
+            box-shadow: 0px 8px 16px rgba(0,0,0,0.4);
+            z-index: 1000;
+            list-style: none;
+            padding: 0.5rem 0;
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+        }
+        .dropdown-content li a { padding: 0.5rem 1rem; display: block; color: var(--text-gray); }
+        .dropdown-content li a:hover { background-color: var(--bg-card); color: var(--accent-glow); }
+        .dropdown:hover .dropdown-content { display: block; }
+
+        .main-content { flex: 1; display: flex; justify-content: center; align-items: center; padding: 8rem 2rem 4rem; }
+        .card { background-color: var(--bg-card); border: 1px solid var(--border-color); width: 100%; max-width: 500px; padding: 2.5rem; border-radius: 12px; box-shadow: 0 8px 24px rgba(0, 0, 0, 0.5); }
+        .card h2 { color: var(--text-light); margin-bottom: 0.5rem; text-align: center; }
+        .card p.subtitle { color: var(--text-gray); font-size: 0.9rem; margin-bottom: 2rem; text-align: center; }
+
+        .stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 2rem; }
+        .stat-box { background-color: var(--bg-dark); border: 1px solid var(--border-color); padding: 1rem; border-radius: 8px; text-align: center; }
+        .stat-box span { display: block; font-size: 0.85rem; color: var(--text-gray); margin-bottom: 0.25rem; }
+        .stat-box strong { font-size: 1.2rem; color: var(--accent-glow); }
+
+        .btn-group { display: flex; flex-direction: column; gap: 0.75rem; }
+        .btn { text-align: center; padding: 0.75rem; border-radius: 6px; font-weight: bold; text-decoration: none; font-size: 0.95rem; transition: 0.2s; }
+        .btn-primary { background-color: var(--accent-purple); color: white; }
+        .btn-primary:hover { background-color: var(--accent-glow); }
+        .btn-secondary { background-color: var(--border-color); color: var(--text-light); }
+        .btn-secondary:hover { background-color: #3d3d4d; }
+
+        footer { text-align: center; padding: 2rem; border-top: 1px solid var(--border-color); color: var(--text-gray); background-color: var(--bg-panel); }
+        footer a { color: var(--text-gray); text-decoration: none; }
+        footer a:hover { color: var(--accent-glow); }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="nav-container">
+        <a href="index.html" class="logo">Nocturnal Gaming</a>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <a href="index.html#games">Games ▾</a>
+                    <ul class="dropdown-content">
+                        <li><a href="games/copter-kid.html">Copter Kid</a></li>
+                        <li><a href="games/every-second-counts.html">Every Second Counts</a></li>
+                        <li><a href="games/rgb.html">R.G.B</a></li>
+                    </ul>
+                </li>
+                <li><a href="privacy.html">Privacy</a></li>
+                <li><a href="terms.html">Terms</a></li>
+                <span id="auth-links" style="display:inline-flex; gap:1.5rem; align-items:center;">
+                    <li><a href="dashboard.html" class="active">Dashboard</a></li>
+                    <li><a href="profile.html">Profile</a></li>
+                    <li><a href="logout.html" style="color: #ff5252;">Logout</a></li>
+                </span>
+            </ul>
+        </nav>
+    </div>
+</header>
+
+<div class="main-content">
+    <div class="card">
+        <h2 id="display-name-heading">Player Dashboard</h2>
+        <p class="subtitle" id="user-email">Loading account data...</p>
+
+        <div class="stats-grid">
+            <div class="stat-box">
+                <span>Member Since</span>
+                <strong id="join-date">-</strong>
+            </div>
+            <div class="stat-box">
+                <span>Cloud Status</span>
+                <strong style="color: #4ade80;">Active</strong>
+            </div>
+        </div>
+
+        <div class="btn-group">
+            <a href="profile.html" class="btn btn-primary">Edit Profile / Display Name</a>
+            <a href="logout.html" class="btn btn-secondary" style="color: #ff5252;">Log Out</a>
+        </div>
+    </div>
+</div>
+
+<footer>
+    <p>
+        Copyright © 2026 Nocturnal Gaming |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms of Service</a>
+    </p>
+</footer>
+
+<script>
+document.addEventListener("DOMContentLoaded", async () => {
+    const supabase = window.supabaseInstance;
+    const { data: { session } } = await supabase.auth.getSession();
+
+    if (!session) {
+        window.location.href = 'login.html';
+        return;
+    }
+
+    const user = session.user;
+    document.getElementById('user-email').innerText = user.email;
+    
+    // Format join date
+    const dateStr = new Date(user.created_at).toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+    document.getElementById('join-date').innerText = dateStr;
+
+    // Fetch display name from profiles table
+    const { data: profile } = await supabase
+        .from('profiles')
+        .select('display_name')
+        .eq('id', user.id)
+        .single();
+
+    if (profile && profile.display_name) {
+        document.getElementById('display-name-heading').innerText = profile.display_name;
+    }
+});
+</script>
+
+</body>
+</html>
