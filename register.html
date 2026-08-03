@@ -170,7 +170,8 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     const username = document.getElementById('username').value;
     const errorDiv = document.getElementById('error-msg');
 
-    const { data, error } = await supabase.auth.signUp({ email, password });
+    // Use window.supabaseInstance safely
+    const { data, error } = await window.supabaseInstance.auth.signUp({ email, password });
     
     if (error) {
         errorDiv.style.display = 'block';
@@ -179,7 +180,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
     }
 
     if (data.user) {
-        const { error: profileError } = await supabase
+        const { error: profileError } = await window.supabaseInstance
             .from('profiles')
             .insert([{ id: data.user.id, display_name: username }]);
             
@@ -188,7 +189,7 @@ document.getElementById('register-form').addEventListener('submit', async (e) =>
         }
     }
 
-    window.location.href = 'dashboard.html';
+    window.location.href = '/dashboard/';
 });
 </script>
 
