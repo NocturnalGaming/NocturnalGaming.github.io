@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,9 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Nocturnal Gaming</title>
     <link rel="icon" type="image/jpeg" href="images/favicon.jpg">
+
     <!-- External Stylesheet -->
     <link rel="stylesheet" href="css/style.css">
-    
+
     <!-- Supabase Client & Dynamic Header Scripts -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="js/supabase-client.js" defer></script>
@@ -29,6 +31,7 @@
 </div>
 
 <div class="container">
+
     <section id="about">
         <h2>About Nocturnal Gaming</h2>
         <p>Nocturnal Gaming creates fun, challenging and addictive mobile games designed to be enjoyed anywhere, anytime.</p>
@@ -37,12 +40,13 @@
 
     <section id="games">
         <h2>Our Games</h2>
+
         <div class="games-grid">
 
             <!-- Copter Kid -->
             <div class="game-card">
                 <div>
-                    <img src="images/copterkid.png" alt="Copter Kid">
+                    <img src="images/copterkid.png" alt="Copter Kid" loading="lazy">
                     <h3><a href="games/copter-kid.html">Copter Kid</a></h3>
                     <p>CopterKid is a classic game of balance and timing. Think you can fly? Navigate tricky caves at break-neck speeds!</p>
                 </div>
@@ -55,7 +59,7 @@
             <!-- Every Second Counts -->
             <div class="game-card">
                 <div>
-                    <img src="images/everysecondcounts.png" alt="Every Second Counts">
+                    <img src="images/everysecondcounts.png" alt="Every Second Counts" loading="lazy">
                     <h3><a href="games/every-second-counts.html">Every Second Counts</a></h3>
                     <p>Hold the button down for as long as the timer says. Sounds easy? Test your timing against players globally.</p>
                 </div>
@@ -68,7 +72,7 @@
             <!-- R.G.B -->
             <div class="game-card">
                 <div>
-                    <img src="images/rgb.png" alt="R.G.B">
+                    <img src="images/rgb.png" alt="R.G.B" loading="lazy">
                     <h3><a href="games/rgb.html">R.G.B</a></h3>
                     <p>A game of pure frustration. Tap left or right to match falling colored blocks with the right circles.</p>
                 </div>
@@ -78,21 +82,51 @@
                 </div>
             </div>
 
+            <!-- Pocket Orbit -->
+            <div class="game-card">
+                <div>
+                    <img src="images/pocket-orbit.png" alt="Pocket Orbit - Relaxing puzzle game" loading="lazy">
+                    <h3><a href="games/pocket-orbit.html">Pocket Orbit</a></h3>
+                    <p>A little space to unwind. Rotate three orbit rings to guide eighteen little travellers home. Discover 144 relaxing puzzles, daily voyages, constellations and a sky full of surprises.</p>
+                </div>
+                <div class="button-group">
+                    <a class="btn view-btn" href="games/pocket-orbit.html">View Game</a>
+                    <a class="btn play-btn" href="#">Google Play</a>
+                </div>
+            </div>
+
+            <!-- Bounce Invaders -->
+            <div class="game-card">
+                <div>
+                    <img src="images/bounce-invaders.png" alt="Bounce Invaders - Arcade space shooter" loading="lazy">
+                    <h3><a href="games/bounce-invaders.html">Bounce Invaders</a></h3>
+                    <p>Bounce. Blast. Invade the skies! Take on waves of alien invaders in a fast-paced arcade shooter. Unlock spaceships, upgrade weapons, defeat bosses and climb the leaderboards!</p>
+                </div>
+                <div class="button-group">
+                    <a class="btn view-btn" href="games/bounce-invaders.html">View Game</a>
+                    <a class="btn play-btn" href="#">Google Play</a>
+                </div>
+            </div>
+
         </div>
     </section>
 
     <section id="contact">
         <h2>Contact</h2>
+
         <div class="contact-form">
             <form action="https://formsubmit.co/nocturnalgamin9@gmail.com" method="POST">
+
                 <div class="form-group">
                     <label>Name</label>
                     <input type="text" name="name" required>
                 </div>
+
                 <div class="form-group">
                     <label>Email</label>
                     <input type="email" name="email" required>
                 </div>
+
                 <div class="form-group">
                     <label>Reason for contacting</label>
                     <select name="reason" required>
@@ -104,6 +138,7 @@
                         <option value="Other">Other</option>
                     </select>
                 </div>
+
                 <div class="form-group">
                     <label>Message</label>
                     <textarea name="message" rows="6" required></textarea>
@@ -117,6 +152,7 @@
             </form>
         </div>
     </section>
+
 </div>
 
 <footer>
