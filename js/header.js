@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", async () => {
                             <li><a href="/games/every-second-counts.html">Every Second Counts</a></li>
                             <li><a href="/games/rgb.html">R.G.B</a></li>
                             <li><a href="/games/pocket-orbit.html">Pocket Orbit</a></li>
+                            <li><a href="/games/bounce-invaders.html">Bounce Invaders</a></li>
                         </ul>
                     </li>
                     <li><a href="/privacy.html">Privacy</a></li>
